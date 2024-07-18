@@ -1,0 +1,28 @@
+services:
+  web-blue:
+    build:
+      context: .
+      dockerfile: ./deploy/${SET}/django/django.dockerfile
+    container_name: web-blue
+    env_file:
+      - .env
+    ports:
+      - "8001:8000"
+    volumes:
+      - /var/log/aiapi:/var/log/aiapi:rw
+      - ./data:/misc/project/aiapi_${SET}/data:rw
+    
+
+  web-green:
+    build:
+      context: .
+      dockerfile: ./deploy/${SET}/django/django.dockerfile
+    container_name: web-green
+    env_file:
+      - .env
+    ports:
+      - "8002:8000"
+    volumes:
+      - /var/log/aiapi:/var/log/aiapi:rw
+      - ./data:/misc/project/aiapi_${SET}/data:rw
+
