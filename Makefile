@@ -34,17 +34,6 @@ rmi:
 none:
 	@docker rmi $$(docker images -a | grep "^<none>" | awk '{print $3}')
 
-.PHONY: daemon-up
-daemon-up:
-	systemctl stop django.service
-	sh deploy/local/django/settings.sh
-	cp deploy/django.service /etc/systemd/system/django.service
-	systemctl start django.service
-
-.PHONY: daemon-down
-daemon-down:
-	systemctl stop django.service
-
 .PHONY: clean
 clean:
 	rm -rf static log data 

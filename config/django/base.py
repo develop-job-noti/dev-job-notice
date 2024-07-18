@@ -20,9 +20,6 @@ ALLOWED_HOSTS = SERVICE.ALLOWED_HOSTS
 
 LOCAL_APPS = [
     "app",
-    "app.record",
-    "app.omr",
-    "app.classfy",
     "core",
 ]
 

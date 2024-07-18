@@ -1,6 +1,6 @@
 black==24.4.2
 Django==5.0.4
-DRF==3.15.1
+djangorestframework==3.15.1
 drf-spectacular==0.27.2
 pre-commit==3.7.0
 PyJWT==2.8.0
