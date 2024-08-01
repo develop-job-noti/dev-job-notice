@@ -8,5 +8,5 @@ timeout = 120
 
 loglevel = "info"
 
-accesslog = "/var/log/aiapi/log/gunicorn-access.log"
-errorlog = "/var/log/aiapi/log/gunicorn-error.log"
+accesslog = "/misc/project/job-noti/log/gunicorn-access.log"
+errorlog = "/misc/project/job-noti/log/gunicorn-error.log"

@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "dev-job-notice"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+black = "24.4.2"
+django = "5.0.4"
+djangorestframework = "3.15.1"
+drf-spectacular = "0.27.2"
+pre-commit = "3.7.0"
+pyjwt = "2.8.0"
+redis = "5.0.4"
+setuptools = "70.0.0"
+python-dotenv = "^1.0.1"
+django-extensions = "^3.2.3"
+ipython = "^8.26.0"
+gunicorn = "^22.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

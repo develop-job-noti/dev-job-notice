@@ -13,7 +13,7 @@
     1. Python 3.12.3 version
     2. pip 24.0 version
 2. 가상환경 적용 `source .venv/bin/activate`
-3. 패키지 설치 `pip install -r requirements/common.txt`
+3. 패키지 설치 `poetry install`
 4. 서버 실행 `make start`
 
 ## Deploy

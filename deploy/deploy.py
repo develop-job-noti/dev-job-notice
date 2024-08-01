@@ -77,7 +77,7 @@ def check_service() -> None:
           YELLOW}], 신규 서비스: [{GREEN}{NEW_SERVICE}{YELLOW}]{RESET}")
 
 
-def deploy(apache: dict, ) -> None:
+def deploy() -> None:
     """
     배포 코드
     """
@@ -95,14 +95,6 @@ def deploy(apache: dict, ) -> None:
     new_service_status = output.stdout.decode()
 
     if new_service_status == "200":
-        # Apache 설정을 새로운 인스턴스로 전환
-        subprocess.run(
-            f'sudo sed -i "s/127.0.0.1:{OLD_PORT}/127.0.0.1:{NEW_PORT}/" {apache["path"]}', shell=True)
-
-        # Apache 설정 재로드
-        subprocess.run(
-            f"sudo systemctl reload {apache["system_name"]}", shell=True)
-        
         # 이전 서비스를 중지하고 삭제
         subprocess.run(
             f'docker rm -f {OLD_SERVICE}', shell=True)
@@ -126,21 +118,8 @@ def delete_image() -> None:
 
 def main(service: str) -> None:
     try:
-        if service == "prod":
-            # Ubuntu 환경
-            apache = {
-                "path": "/etc/apache2/sites-available/default-ssl.conf",
-                "system_name": "apache2"
-            }
-        elif service == "dev":
-            # Rocky 환경
-            apache = {
-                "path": "/etc/httpd/conf.d/django.conf",
-                "system_name": "httpd"
-            }
-
         check_service()
-        deploy(apache=apache)
+        deploy()
         delete_image()
     except Exception as e:
         # TODO: 오류가 난 상황 정리

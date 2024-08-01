@@ -10,4 +10,4 @@ python3 manage.py collectstatic --noinput
 python3 manage.py makemigrations --noinput
 python3 manage.py migrate
 
-# gunicorn config.wsgi:application --config=deploy/gunicorn.conf.py
+gunicorn config.wsgi:application --config=deploy/local/django/gunicorn.conf.py
