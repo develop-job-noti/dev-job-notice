@@ -15,6 +15,9 @@ class User(AbstractBaseUser, BaseModel, PermissionsMixin):
         max_length=254,
         unique=True,
         verbose_name="사용자 이메일 주소",
+        error_messages={
+            "unique": "이 이메일 주소는 이미 사용 중입니다. 다른 이메일을 입력해주세요."
+        },
     )
     nickname = models.CharField(max_length=16, verbose_name="유저 닉네임")
     password = models.CharField(max_length=128, verbose_name="비밀번호")
@@ -26,6 +29,7 @@ class User(AbstractBaseUser, BaseModel, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["nickname"]
 
     class Meta:
         db_table = "user"

@@ -19,6 +19,7 @@ class UserManager(BaseUserManager):
             raise ValueError("이메일 주소를 필수로 가져야 합니다.")
 
         email = self.normalize_email(email=email)
+
         user = self.model(
             email=email,
             nickname=nickname,

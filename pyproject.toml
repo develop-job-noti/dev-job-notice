@@ -20,6 +20,8 @@ python-dotenv = "^1.0.1"
 django-extensions = "^3.2.3"
 ipython = "^8.26.0"
 gunicorn = "^22.0.0"
+djangorestframework-simplejwt = "^5.3.1"
+django-allauth = "^64.1.0"
 
 
 [build-system]

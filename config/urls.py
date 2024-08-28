@@ -10,6 +10,7 @@ from core.view import HealthCheckView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("apis/v1/users/", include("apis.users.urls")),
     path("health-check", view=HealthCheckView.as_view(), name="health_check"),
 ]
 
